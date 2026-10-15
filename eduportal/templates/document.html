@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ document[2] }} - EduPortal</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>EduPortal</h1>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <a href="/documents">Documents</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+
+        <h2>{{ document[2] }}</h2>
+
+        <p>
+            Document Type:
+            {{ document[3] | replace("-", " ") | title }}
+        </p>
+
+    </section>
+
+    <section class="profile-card">
+
+        <h3>Document Information</h3>
+
+        <p>
+            <strong>Document ID:</strong>
+            {{ document[0] }}
+        </p>
+
+        <p>
+            <strong>Name:</strong>
+            {{ document[2] }}
+        </p>
+
+        <p>
+            <strong>Type:</strong>
+            {{ document[3] | replace("-", " ") | title }}
+        </p>
+
+        <p>
+            <strong>Created:</strong>
+            {{ document[4] }}
+        </p>
+
+        <a href="/documents" class="document-btn">
+            Back to Documents
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EduPortal</p>
+</footer>
+
+</body>
+
+</html>

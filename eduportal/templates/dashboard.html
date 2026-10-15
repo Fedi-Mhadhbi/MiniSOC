@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - EduPortal</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>EduPortal</h1>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <h2>Welcome, {{ user[1] }}</h2>
+        <p>Welcome to your EduPortal student dashboard.</p>
+    </section>
+
+    <section class="features">
+
+    <div class="feature-card">
+        <h3>Student Profile</h3>
+        <p>View your personal information.</p>
+        <a href="/profile">View Profile</a>
+    </div>
+
+    <div class="feature-card">
+        <h3>My Courses</h3>
+
+        {% if courses %}
+
+            {% for course in courses %}
+                <p>
+                    <strong>{{ course[0] }}</strong>
+                    - {{ course[1] }}
+                </p>
+            {% endfor %}
+
+            <a href="/courses">View All Courses</a>
+
+        {% else %}
+
+            <p>You are not enrolled in any courses.</p>
+
+        {% endif %}
+
+    </div>
+
+    <div class="feature-card">
+        <h3>Grades</h3>
+        <p>Check your academic results.</p>
+        <a href="/grades">View Grades</a>
+    </div>
+
+ <div class="feature-card">
+    <h3>Documents</h3>
+    <p>Access your academic documents.</p>
+    <a href="/documents">View Documents</a>
+</div>
+<div class="feature-card">
+    <h3>Attendance</h3>
+    <p>View your attendance records.</p>
+    <a href="/attendance">View Attendance</a>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EduPortal</p>
+</footer>
+
+</body>
+</html>

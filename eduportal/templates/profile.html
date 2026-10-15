@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - EduPortal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>EduPortal</h1>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h2>Student Profile</h2>
+
+        <p><strong>Student ID:</strong> {{ user[0] }}</p>
+        <p><strong>Full Name:</strong> {{ user[1] }}</p>
+        <p><strong>Email:</strong> {{ user[2] }}</p>
+        <p><strong>Phone:</strong> {{ user[3] }}</p>
+    </section>
+    <div class="profile-card">
+    <div class="profile-card-header">
+        <div>
+            <h3>Personal Information</h3>
+            <p>Update your contact information and profile details.</p>
+        </div>
+    </div>
+
+    <form method="POST" action="/profile" class="profile-form">
+
+        <div class="form-group">
+            <label for="full_name">Full Name</label>
+            <input
+                type="text"
+                id="full_name"
+                name="full_name"
+                value="{{ user[1] }}"
+                required
+                maxlength="100"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+                type="text"
+                id="phone"
+                name="phone"
+                value="{{ user[3] or '' }}"
+                maxlength="20"
+            >
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="update-btn">
+                Save Changes
+            </button>
+        </div>
+
+    </form>
+</div>
+</main>
+
+<footer>
+    <p>&copy; 2026 EduPortal</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduPortal</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>EduPortal</h1>
+
+            <div>
+                <a href="/">Home</a>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to EduPortal</h2>
+
+            <p>
+                A student management platform for managing courses,
+                grades, attendance, documents, and personal information.
+            </p>
+
+            <div>
+                <a href="/login">Student Login</a>
+                <a href="/register">Create Account</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>EduPortal Features</h2>
+
+            <div>
+                <article>
+                    <h3>Student Profile</h3>
+                    <p>Manage your personal and academic information.</p>
+                </article>
+
+                <article>
+                    <h3>Courses</h3>
+                    <p>View your enrolled courses and academic information.</p>
+                </article>
+
+                <article>
+                    <h3>Grades</h3>
+                    <p>Check your grades and academic results.</p>
+                </article>
+
+                <article>
+                    <h3>Documents</h3>
+                    <p>Access your academic documents securely.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 EduPortal</p>
+    </footer>
+
+</body>
+</html>

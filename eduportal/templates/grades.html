@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grades - EduPortal</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>EduPortal</h1>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/courses">Courses</a>
+            <a href="/grades">Grades</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero">
+        <h2>My Grades</h2>
+        <p>View your academic results.</p>
+    </section>
+
+    <section class="features">
+
+        {% if grades %}
+
+            {% for grade in grades %}
+
+            <div class="feature-card">
+                <h3>{{ grade[0] }}</h3>
+                <h4>{{ grade[1] }}</h4>
+                <p>
+                    Grade:
+                    <strong>{{ grade[2] }}</strong>
+                </p>
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="feature-card">
+                <h3>No Grades</h3>
+                <p>No grades are currently available.</p>
+            </div>
+
+        {% endif %}
+
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EduPortal</p>
+</footer>
+
+</body>
+</html>

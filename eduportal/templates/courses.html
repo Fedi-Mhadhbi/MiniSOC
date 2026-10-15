@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - EduPortal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>EduPortal</h1>
+
+        <div>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/courses">Courses</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h2>Courses</h2>
+        <p>Available courses in EduPortal.</p>
+    </section>
+
+    <section class="features">
+
+        {% for course in courses %}
+
+        <div class="feature-card">
+            <h3>{{ course[1] }}</h3>
+            <h4>{{ course[2] }}</h4>
+            <p>{{ course[3] }}</p>
+        </div>
+
+        {% endfor %}
+
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 EduPortal</p>
+</footer>
+
+</body>
+</html>

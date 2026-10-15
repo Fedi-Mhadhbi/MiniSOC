@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - EduPortal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="container">
+        <h1>EduPortal</h1>
+
+        <nav>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/profile">Profile</a>
+            <a href="/courses">Courses</a>
+            <a href="/grades">Grades</a>
+            <a href="/attendance">Attendance</a>
+            <a href="/logout">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <h2>My Attendance</h2>
+        <p>View your attendance records for your courses.</p>
+    </section>
+
+    {% if attendance %}
+
+        {% for record in attendance %}
+
+        <div class="feature-card">
+            <h3>{{ record[0] }}</h3>
+
+            <h4>{{ record[1] }}</h4>
+
+            <p>
+                Date:
+                <strong>{{ record[2] }}</strong>
+            </p>
+
+            <p>
+                Status:
+                <strong>{{ record[3] }}</strong>
+            </p>
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="feature-card">
+            <h3>No Attendance Records</h3>
+            <p>No attendance records are currently available.</p>
+        </div>
+
+    {% endif %}
+
+</main>
+
+<footer>
+    <p>EduPortal &copy; 2026</p>
+</footer>
+
+</body>
+</html>

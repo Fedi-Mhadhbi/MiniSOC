@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Documents - EduPortal</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <h1>EduPortal</h1>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/profile">Profile</a>
+            <a href="/documents">Documents</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+
+    <section class="hero">
+        <h2>Student Documents</h2>
+
+        <p>
+            Access your academic and administrative documents.
+        </p>
+    </section>
+
+
+    <section class="documents-grid">
+
+        {% for document in documents %}
+
+        <div class="document-card">
+
+            <div class="document-icon">
+
+                {% if document[2] == "transcript" %}
+                    📄
+
+                {% elif document[2] == "enrollment" %}
+                    🎓
+
+                {% elif document[2] == "student-card" %}
+                    🪪
+
+                {% else %}
+                    📁
+                {% endif %}
+
+            </div>
+
+
+            <div class="document-info">
+
+                <h3>
+                    {{ document[1] }}
+                </h3>
+
+                <p>
+                    {{ document[2] | replace("-", " ") | title }}
+                </p>
+
+                <small>
+                    Added: {{ document[3] }}
+                </small>
+
+            </div>
+
+
+            <a
+                href="{{ url_for(
+                    'document_access',
+                    document_id=document[0]
+                ) }}"
+                class="document-btn"
+            >
+                View Document
+            </a>
+
+        </div>
+
+        {% else %}
+
+        <div class="document-card">
+
+            <div class="document-icon">
+                📁
+            </div>
+
+            <div class="document-info">
+
+                <h3>No Documents</h3>
+
+                <p>
+                    You currently have no documents available.
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </section>
+
+</main>
+
+
+<footer>
+    <p>&copy; 2026 EduPortal</p>
+</footer>
+
+</body>
+</html>
+
