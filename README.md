@@ -144,14 +144,14 @@ MiniSOC/
 **Overview** — live threat gauge, activity trend, severity breakdown, and the top-attacking-IPs
 leaderboard, all updating every 2 seconds without a page refresh.
 
-![Dashboard overview](assets/dashboard-overview.png)
+![Dashboard overview](assests/dashboard-overview.png)
 
 **Correlated alerts in action** — a single attacker IP triggering `ACCOUNT_ENUMERATION`,
 `SQLI_DETECTED`, `XSS_DETECTED`, `PATH_TRAVERSAL`, `UNAUTHORIZED_DOCUMENT_ACCESS`, and
 `BRUTE_FORCE` gets automatically folded into one `CORRELATED_ATTACK` incident instead of six
 disconnected alerts.
 
-![Correlated attack alerts](assets/alerts-correlation.png)
+![Correlated attack alerts](assests/alerts-correlation.png)
 
 ---
 
